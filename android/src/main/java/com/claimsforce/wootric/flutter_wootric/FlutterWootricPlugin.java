@@ -1,16 +1,18 @@
 package com.claimsforce.wootric.flutter_wootric;
+
 import android.app.Activity;
+import android.net.Uri;
+
+import com.wootric.androidsdk.Wootric;
+import com.wootric.androidsdk.objects.WootricCustomThankYou;
+
+import java.util.HashMap;
 
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
-import com.wootric.androidsdk.Wootric;
-import com.wootric.androidsdk.objects.WootricCustomMessage;
-import com.wootric.androidsdk.objects.WootricCustomThankYou;
-
-import java.util.HashMap;
 
 /** FlutterWootricPlugin */
 public class FlutterWootricPlugin implements MethodCallHandler {
@@ -63,6 +65,20 @@ public class FlutterWootricPlugin implements MethodCallHandler {
       WootricCustomThankYou customThankYou = new WootricCustomThankYou();
       customThankYou.setScoreInUrl(passScoreAndTextToURL);
       customThankYou.setCommentInUrl(passScoreAndTextToURL);
+      customThankYou.setText("Thank you!!");
+      customThankYou.setDetractorText("Detractor thank you");
+      customThankYou.setPassiveText("Passive thank you");
+      customThankYou.setPromoterText("Promoter thank you");
+      customThankYou.setLinkText("Thank you link text");
+      customThankYou.setDetractorLinkText("Detractor link text");
+      customThankYou.setPassiveLinkText("Passive link text");
+      customThankYou.setPromoterLinkText("Promoter link text");
+      customThankYou.setLinkUri(Uri.parse("http://wootric.com/thank_you"));
+      customThankYou.setDetractorLinkUri(Uri.parse("http://wootric.com/detractor_thank_you"));
+      customThankYou.setPassiveLinkUri(Uri.parse("http://wootric.com/passive_thank_you"));
+      customThankYou.setPromoterLinkUri(Uri.parse("http://wootric.com/promoter_thank_you"));
+      customThankYou.setScoreInUrl(true);
+      customThankYou.setCommentInUrl(true);
       wootric.setCustomThankYou(customThankYou);
     } else if(call.method.equals("showOptOut")) {
       boolean showOptOut = call.argument("showOptOut");
