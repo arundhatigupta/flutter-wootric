@@ -74,8 +74,8 @@ public class FlutterWootricPlugin implements MethodCallHandler {
       String languageCode = call.argument("languageCode");
       wootric.setLanguageCode(languageCode);
     } else if(call.method.equals("showWootricSurvey")) {
-      wootric.setSurveyColor(R.color.dark_sky_blue);
-      wootric.setScoreColor(R.color.dark_sky_blue);
+      wootric.setSurveyColor(R.color.black);
+      wootric.setScoreColor(R.color.black);
       wootric.survey();
     }
   }
